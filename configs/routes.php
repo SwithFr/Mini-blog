@@ -5,6 +5,7 @@ $routes['default'] = 'index/post';
 $routes['viewPost'] = 'view/post';
 $routes['categoryPost'] = 'category/post';
 $routes['createComment'] = 'create/comment';
+$routes['loginUser'] = 'login/user';
 
 # Admin - Posts
 $routes['ad_indexPost'] = 'admin_index/post';
