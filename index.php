@@ -23,7 +23,9 @@ $controllerName = ucfirst($request->controller) . 's' . 'Controller';
 $controller = new $controllerName($request);
 
 # Récupération des données
-extract(call_user_func([$controller, $request->action]));
+$data = call_user_func([$controller, $request->action]);
+if(!empty($data))
+    extract($data);
 
 # On inclue le layout
 include('./views/layouts/'. $controller->layout .'.php');
