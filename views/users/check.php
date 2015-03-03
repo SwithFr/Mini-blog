@@ -1,5 +1,5 @@
 <main class="blog__main">
-    <form action="<?= $_SERVER['PHP_SELF']; ?>?a=login&e=user">
+    <form action="<?= $_SERVER['PHP_SELF']; ?>?a=check&e=user" method="POST">
         <div class=" <?= isset($errors['email'])?'has-error':''; ?>">
             <label for="email">Email</label>
             <input type="email" name="email" id="email" value="<?= isset($email)?$email:''; ?>"/>
