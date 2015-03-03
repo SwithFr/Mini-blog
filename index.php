@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 # On inclue le fichier de librairie (petites fonctions utiles)
 include('./libs/lib.php');
 
@@ -27,7 +28,6 @@ $data = call_user_func([$controller, $request->action]);
 if(!empty($data))
     extract($data);
 
-session_start();
 
 # On inclue le layout
 include('./views/layouts/'. $controller->layout .'.php');
