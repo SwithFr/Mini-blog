@@ -12,16 +12,24 @@ class UsersController extends AppController
         $user = $this->User->get($_REQUEST['email'],sha1($_REQUEST['password']));
 
         if ($user) {
-            $this->connect($user);
+            $this->connect($user->email);
         } else {
             $this->create($_REQUEST['email'],sha1($_REQUEST['password']));
         }
     }
 
-    public function connect($user)
+    private function connect($email)
     {
-        $_SESSION['user'] = $user->email;
+        $_SESSION['user'] = $email;
         $_SESSION['connected'] = 1;
         header("Location: " . $_SERVER['PHP_SELF']);
     }
+
+    private function create($email,$password)
+    {
+        $this->User->create($email,$password);
+        $this->connect($email);
+    }
+
+
 } 
